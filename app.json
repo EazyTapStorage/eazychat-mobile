@@ -1,25 +1,69 @@
 {
   "expo": {
-    "name": "eazychat-mobile",
-    "slug": "eazychat-mobile",
+    "name": "Eazychat",
+    "slug": "eazychat",
+    "scheme": "eazychat",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#00a884"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.eazytap.eazychat",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Eazychat requires access to your microphone to record voice notes and conduct voice calls.",
+        "NSCameraUsageDescription": "Eazychat requires access to your camera to take photos and participate in video calls.",
+        "NSPhotoLibraryUsageDescription": "Eazychat requires access to your photo library to share photos with your contacts."
+      }
     },
     "android": {
+      "package": "com.eazytap.eazychat",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#00a884",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "RECORD_AUDIO",
+        "CAMERA",
+        "READ_MEDIA_IMAGES",
+        "POST_NOTIFICATIONS",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "VIBRATE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow Eazychat to access your microphone to record voice notes."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Eazychat to access your photos to share them in conversations."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/favicon.png",
+          "color": "#00a884"
+        }
+      ]
+    ]
   }
 }
